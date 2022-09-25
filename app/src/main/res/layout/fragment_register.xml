@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+
+    <TextView
+        android:id="@+id/textlogin"
+        android:text="Register"
+        android:textSize="30dp"
+        android:padding="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textlogin"
+        android:padding="10dp"/>
+    <EditText
+        android:id="@+id/etEmail"
+        android:hint="Masukuan Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etUserName"
+        android:padding="10dp"/>
+    <EditText
+        android:id="@+id/etPassword"
+        android:hint="Password  "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:padding="10dp"/>
+    <EditText
+        android:id="@+id/etRepeatPassword"
+        android:hint="RepeatPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPassword"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/btnRegister"
+        android:text="login"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etRepeatPassword"/>
+    <TextView
+        android:text="login"
+        android:id="@+id/Register"
+        android:layout_below="@+id/btnRegister"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
