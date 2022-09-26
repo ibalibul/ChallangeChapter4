@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         })
 
         binding.btnAddNote.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_editFragment)
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_addNoteFragment)
         }
         binding.btnlogout.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_loginFragment)
