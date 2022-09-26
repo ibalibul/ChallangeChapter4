@@ -45,6 +45,7 @@ class HomeFragment : Fragment() {
         sharedPreferces = requireActivity().getSharedPreferences("Userdata",Context.MODE_PRIVATE)
 
 
+
         NoteDB = NoteDataBases.getInstance(requireContext())
 
         noteVm()

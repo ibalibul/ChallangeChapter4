@@ -1,48 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="5dp"
-    android:layout_margin="15dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    <RelativeLayout
-        android:id="@+id/klik"
-        android:padding="15dp"
-        android:layout_width="wrap_content"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="note"
+            type="com.iqbal.challangechapter4.room.DataNote" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TextView
-        android:text="id"
-        android:id="@+id/noteId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-     <TextView
-        android:text="Judul"
-         android:id="@+id/noteTitle"
-         android:layout_below="@+id/noteId"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"/>
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:padding="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/btnDeletNote"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/ic_baseline_delete_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <ImageView
-        android:id="@+id/btnEditNote"
-        android:src="@drawable/ic_baseline_edit_24"
-        android:layout_below="@+id/btnDeletNote"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/klik"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="id"
+                android:id="@+id/noteId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Judul"
+                android:id="@+id/noteTitle"
+                android:layout_below="@+id/noteId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btnDeletNote"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/btnEditNote"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:layout_below="@+id/btnDeletNote"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
 
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>

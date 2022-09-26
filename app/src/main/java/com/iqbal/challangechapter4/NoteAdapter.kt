@@ -2,6 +2,7 @@ package com.iqbal.challangechapter4
 
 import android.app.Application
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
@@ -16,28 +17,32 @@ import kotlinx.coroutines.async
 
 class NoteAdapter (var listNote : List<DataNote>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
-    var DBNote : NoteDataBases? = null
-    class ViewHolder(var binding : ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
 
+    class ViewHolder(var binding : ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun dataBinding(itemData : DataNote){
+            binding.note = itemData
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteAdapter.ViewHolder {
         var view = ItemNoteBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.noteId.text = listNote[position].id.toString()
-        holder.binding.noteTitle.text = listNote[position].content
+    var dbNote : NoteDataBases? = null
+
+    override fun onBindViewHolder(holder: NoteAdapter.ViewHolder, position: Int) {
+        holder.dataBinding(listNote[position])
+
         holder.binding.btnDeletNote.setOnClickListener{
-            DBNote = NoteDataBases.getInstance(it.context)
+            dbNote = NoteDataBases.getInstance(it.context)
 
             GlobalScope.async {
                 NoteViewModel(Application()).deleteNote(listNote[position])
 
                 GlobalScope.async {
                    NoteViewModel(Application()).deleteNote(listNote[position])
-                    DBNote?.noteDao()?.deletNote(listNote[position])
+                    dbNote?.noteDao()?.deletNote(listNote[position])
                     val nav = Navigation.findNavController(it)
                     nav.run {
                         navigate(R.id.homeFragment)
@@ -51,7 +56,10 @@ class NoteAdapter (var listNote : List<DataNote>) : RecyclerView.Adapter<NoteAda
             }
         }
         holder.binding.btnEditNote.setOnClickListener{
-          Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_editFragment)
+            val bundle = Bundle()
+            bundle.putSerializable("note",listNote[position])
+            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_editFragment,bundle)
+
         }
 //        holder.binding.klik.setOnClickListener{
 //            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailFragment)

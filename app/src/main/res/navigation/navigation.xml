@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -65,6 +68,15 @@
         tools:layout="@layout/fragment_edit" >
         <action
             android:id="@+id/action_editFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.iqbal.challangechapter4.room.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
